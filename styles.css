@@ -12,31 +12,34 @@ header {
     background: white;
     color: black;
     display: grid;
-    grid-template-columns: 1fr auto 1fr; /* 3 columnas equilibradas */
-    align-items: center; /* Asegura alineación vertical perfecta */
+    grid-template-columns: 1fr auto 1fr; /* 3 columnas: Izquierda - Centro - Derecha */
+    align-items: center;
     padding: 10px 30px;
     border-bottom: 2px solid #000;
-    height: 70px; /* Ajuste de altura */
+    height: 80px; /* Se ajusta la altura para mejor alineación */
     position: relative;
 }
 
-/* Fecha y hora */
+/* Fecha y hora a la izquierda */
 .header-left {
     text-align: left;
     font-size: 14px;
     white-space: nowrap;
+    align-self: center;
 }
 
 /* Contenedor del logo */
 .header-center {
     display: flex;
     justify-content: center;
-    align-items: center; /* Centra mejor el logo */
+    align-items: center;
+    height: 100%;
+    padding-top: 5px; /* Ajuste fino para centrarlo mejor */
 }
 
 /* Imagen del logo */
 .header-center img {
-    height: 45px; /* Ajuste de tamaño */
+    height: 50px; /* Ajuste de tamaño para mejor proporción */
     max-width: 100%;
 }
 
@@ -44,6 +47,7 @@ header {
 .header-right {
     text-align: right;
     font-weight: bold;
+    align-self: center;
 }
 
 .header-right a {
