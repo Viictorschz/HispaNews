@@ -7,41 +7,44 @@ body {
     color: #333;
 }
 
-/* Contenedor del encabezado */
+/* Encabezado */
 header {
     background: white;
     color: black;
     display: flex;
     align-items: center;
-    justify-content: center; /* Centra el contenido */
+    justify-content: center;
     padding: 10px 30px;
     border-bottom: 2px solid #000;
     position: relative;
-    height: 60px; /* Mantiene proporción */
+    height: 60px;
 }
 
-/* Fecha y hora a la izquierda */
+/* Fecha y hora */
 .header-left {
     position: absolute;
     left: 30px;
     font-size: 14px;
-    white-space: nowrap; /* Evita que se divida en dos líneas */
+    white-space: nowrap;
 }
 
 /* Contenedor del logo centrado */
 .header-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Centra el logo perfectamente */
     display: flex;
+    align-items: center;
     justify-content: center;
-    flex-grow: 1; /* Permite que el logo quede en el centro sin ser empujado */
 }
 
-/* Logo con mejor ajuste */
+/* Logo */
 .header-center img {
     height: 40px;
     max-width: 100%;
 }
 
-/* Login a la derecha */
+/* Login */
 .header-right {
     position: absolute;
     right: 30px;
@@ -49,7 +52,6 @@ header {
     cursor: pointer;
 }
 
-/* Estilo del enlace de login */
 .header-right a {
     text-decoration: none;
     color: black;
@@ -59,7 +61,7 @@ header {
     text-decoration: underline;
 }
 
-/* Menú de navegación */
+/* Menú */
 nav {
     text-align: center;
     padding: 10px 0;
