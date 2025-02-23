@@ -7,37 +7,56 @@ body {
     color: #333;
 }
 
-/* Encabezado estilo Electomanía */
+/* Contenedor del encabezado */
 header {
     background: white;
     color: black;
     display: flex;
     align-items: center;
-    justify-content: center; /* Centra el logo */
+    justify-content: center; /* Centra el contenido */
     padding: 10px 30px;
     border-bottom: 2px solid #000;
     position: relative;
+    height: 60px; /* Mantiene proporción */
 }
 
 /* Fecha y hora a la izquierda */
 .header-left {
     position: absolute;
-    left: 30px; /* Mantiene distancia del borde izquierdo */
+    left: 30px;
     font-size: 14px;
+    white-space: nowrap; /* Evita que se divida en dos líneas */
 }
 
-/* Logo centrado */
+/* Contenedor del logo centrado */
+.header-center {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1; /* Permite que el logo quede en el centro sin ser empujado */
+}
+
+/* Logo con mejor ajuste */
 .header-center img {
     height: 40px;
-    display: block;
+    max-width: 100%;
 }
 
 /* Login a la derecha */
 .header-right {
     position: absolute;
-    right: 30px; /* Mantiene distancia del borde derecho */
+    right: 30px;
     font-weight: bold;
     cursor: pointer;
+}
+
+/* Estilo del enlace de login */
+.header-right a {
+    text-decoration: none;
+    color: black;
+}
+
+.header-right a:hover {
+    text-decoration: underline;
 }
 
 /* Menú de navegación */
