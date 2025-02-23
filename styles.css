@@ -13,24 +13,34 @@ header {
     color: black;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center; /* Centra el logo */
     padding: 10px 30px;
     border-bottom: 2px solid #000;
+    position: relative;
 }
 
+/* Fecha y hora a la izquierda */
 .header-left {
+    position: absolute;
+    left: 30px; /* Mantiene distancia del borde izquierdo */
     font-size: 14px;
 }
 
+/* Logo centrado */
 .header-center img {
     height: 40px;
+    display: block;
 }
 
+/* Login a la derecha */
 .header-right {
+    position: absolute;
+    right: 30px; /* Mantiene distancia del borde derecho */
     font-weight: bold;
     cursor: pointer;
 }
 
+/* Menú de navegación */
 nav {
     text-align: center;
     padding: 10px 0;
