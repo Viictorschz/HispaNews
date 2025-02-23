@@ -7,49 +7,41 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <header>
-        <div class="logo">
+        <div class="header-left">
+            <span id="current-date"></span>
+        </div>
+        <div class="header-center">
             <img src="Recursos/Logo.png" alt="HispaNews Logo">
         </div>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#noticias">Noticias</a></li>
-                <li><a href="#encuestas">Encuestas</a></li>
-                <li><a href="#analisis">Análisis</a></li>
-                <li><a href="#donaciones">Donaciones</a></li>
-            </ul>
-        </nav>
+        <div class="header-right">
+            <a href="#">Login</a>
+        </div>
     </header>
-    
-    <section id="noticias">
-        <h2>Últimas Noticias</h2>
-        <article class="noticia">
-            <img src="noticia1.jpg" alt="Imagen de noticia">
-            <h3>Título de la noticia</h3>
-            <p>Resumen de la noticia...</p>
-            <a href="#">Leer más</a>
-        </article>
-    </section>
-    
-    <section id="encuestas">
-        <h2>Encuestas y Sondeos</h2>
-        <p>Aquí se mostrarán las encuestas recientes.</p>
-    </section>
-    
-    <section id="analisis">
-        <h2>Análisis y Opinión</h2>
-        <p>Contenido de análisis político y opiniones.</p>
-    </section>
-    
-    <section id="donaciones">
-        <h2>Apoya a HispaNews</h2>
-        <p>Puedes hacer donaciones en BTC y USDT aquí.</p>
-        <button class="donar">Donar</button>
-    </section>
-    
-    <footer>
-        <p>&copy; 2025 HispaNews - Todos los derechos reservados</p>
-    </footer>
+
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#noticias">Noticias</a></li>
+            <li><a href="#encuestas">Encuestas</a></li>
+            <li><a href="#internacional">Internacional</a></li>
+            <li><a href="#electopanel">ElectoPanel</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#foro">Foro</a></li>
+            <li><a href="#usuarios">Usuarios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li class="search-icon">🔍</li>
+        </ul>
+    </nav>
+
+    <script>
+        // Script para mostrar la fecha actual
+        const dateElement = document.getElementById('current-date');
+        const today = new Date();
+        const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+        dateElement.textContent = today.toLocaleDateString('es-ES', options);
+    </script>
+
 </body>
 </html>
