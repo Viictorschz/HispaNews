@@ -10,7 +10,7 @@
 
     <header>
         <div class="header-left">
-            <span id="current-date"></span> |<span id="current-time"></span> 🇪🇸 
+            <span id="current-date"></span> | 🇪🇸 <span id="current-time"></span>
         </div>
         <div class="header-center">
             <img src="Recursos/Logo.png" alt="HispaNews Logo">
@@ -23,57 +23,73 @@
     <nav>
         <ul>
             <li><a href="#">Inicio</a></li>
-            <li><a href="#noticias">Noticias</a></li>
-            <li><a href="#encuestas">Encuestas</a></li>
-            <li><a href="#internacional">Internacional</a></li>
-            <li><a href="#electopanel">ElectoPanel</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#foro">Foro</a></li>
-            <li><a href="#usuarios">Usuarios</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#">Noticias</a></li>
+            <li><a href="#">Encuestas</a></li>
+            <li><a href="#">Internacional</a></li>
+            <li><a href="#">ElectoPanel</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Foro</a></li>
+            <li><a href="#">Usuarios</a></li>
+            <li><a href="#">Contacto</a></li>
             <li class="search-icon">🔍</li>
         </ul>
     </nav>
 
+    <main class="container">
+        <section class="main-news">
+            <h2>📰 EN PORTADA</h2>
+            <article class="featured-news">
+                <img src="Recursos/noticia-principal.jpg" alt="Noticia Principal">
+                <h3><a href="#">El mediador sugiere a Junts retirar la moción de confianza contra Sánchez</a></h3>
+                <p>23 febrero, 2025</p>
+            </article>
+        </section>
+
+        <aside class="sidebar">
+            <h2>📌 DESTACADAS</h2>
+            <article class="highlighted-news">
+                <img src="Recursos/noticia1.jpg" alt="Noticia 1">
+                <h3><a href="#">Alemania: proyección INSA apunta a complejas mayorías</a></h3>
+                <p>23 febrero, 2025</p>
+            </article>
+            <article class="highlighted-news">
+                <img src="Recursos/noticia2.jpg" alt="Noticia 2">
+                <h3><a href="#">AfD y Die Linke lideran intención de voto entre nuevos electores</a></h3>
+                <p>22 febrero, 2025</p>
+            </article>
+        </aside>
+
+        <aside class="polls">
+            <h2>📊 Encuestas</h2>
+            <ul>
+                <li><a href="#">📍 Nacionales</a></li>
+                <li><a href="#">🏛️ Autonómicas</a></li>
+                <li><a href="#">🏙️ Municipales</a></li>
+                <li><a href="#">🗳️ Internas</a></li>
+                <li><a href="#">🗣️ De opinión</a></li>
+                <li><a href="#">🌍 Internacionales</a></li>
+            </ul>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 HispaNews - Todos los derechos reservados</p>
+    </footer>
+
     <script>
-        // Función para mostrar la fecha actual y la hora de España correctamente
         function updateDateTime() {
             const dateElement = document.getElementById('current-date');
             const timeElement = document.getElementById('current-time');
             const now = new Date();
-
-            // Configurar la fecha en formato "domingo 25 febrero, 2025"
             const dateOptions = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
             dateElement.textContent = now.toLocaleDateString('es-ES', dateOptions);
-
-            // Obtener la hora de España manualmente ajustando la zona horaria
-            const madridOffset = 1; // UTC+1 (Horario estándar)
-            const summerOffset = 2; // UTC+2 (Horario de verano)
-
-            let utc = now.getTime() + now.getTimezoneOffset() * 60000;
-            let madridTime = new Date(utc + (madridOffset * 3600000));
-
-            // Verificar si estamos en horario de verano (último domingo de marzo a último domingo de octubre)
-            let startDST = new Date(now.getFullYear(), 2, 31);
-            startDST.setDate(startDST.getDate() - startDST.getDay()); // Último domingo de marzo
-            let endDST = new Date(now.getFullYear(), 9, 31);
-            endDST.setDate(endDST.getDate() - endDST.getDay()); // Último domingo de octubre
-
-            if (now >= startDST && now < endDST) {
-                madridTime = new Date(utc + (summerOffset * 3600000)); // UTC+2 en verano
-            }
-
-            // Formatear la hora en HH:MM:SS
-            const hours = madridTime.getHours().toString().padStart(2, '0');
-            const minutes = madridTime.getMinutes().toString().padStart(2, '0');
-            const seconds = madridTime.getSeconds().toString().padStart(2, '0');
-
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
             timeElement.textContent = `${hours}:${minutes}:${seconds}`;
         }
-
-        // Actualizar la hora cada segundo
         setInterval(updateDateTime, 1000);
-        updateDateTime(); // Ejecutar al cargar la página
+        updateDateTime();
     </script>
 
 </body>
