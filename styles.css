@@ -12,15 +12,15 @@ header {
     background: white;
     color: black;
     display: grid;
-    grid-template-columns: 1fr auto 1fr; /* Divide en 3 partes: Izquierda - Centro - Derecha */
-    align-items: center;
+    grid-template-columns: 1fr auto 1fr; /* 3 columnas equilibradas */
+    align-items: center; /* Asegura alineación vertical perfecta */
     padding: 10px 30px;
     border-bottom: 2px solid #000;
-    height: 60px;
+    height: 70px; /* Ajuste de altura */
     position: relative;
 }
 
-/* Fecha y hora a la izquierda */
+/* Fecha y hora */
 .header-left {
     text-align: left;
     font-size: 14px;
@@ -31,11 +31,12 @@ header {
 .header-center {
     display: flex;
     justify-content: center;
+    align-items: center; /* Centra mejor el logo */
 }
 
 /* Imagen del logo */
 .header-center img {
-    height: 40px;
+    height: 45px; /* Ajuste de tamaño */
     max-width: 100%;
 }
 
@@ -57,7 +58,7 @@ header {
 /* MENÚ */
 nav {
     text-align: center;
-    padding: 10px 0;
+    padding: 10px 5px;
 }
 
 nav ul {
