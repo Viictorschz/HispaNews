@@ -36,11 +36,44 @@
     </nav>
 
     <script>
-        // Script para mostrar la fecha actual
-        const dateElement = document.getElementById('current-date');
-        const today = new Date();
-        const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
-        dateElement.textContent = today.toLocaleDateString('es-ES', options);
+        // Función para mostrar la fecha actual y la hora de España correctamente
+        function updateDateTime() {
+            const dateElement = document.getElementById('current-date');
+            const timeElement = document.getElementById('current-time');
+            const now = new Date();
+
+            // Configurar la fecha en formato "domingo 25 febrero, 2025"
+            const dateOptions = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+            dateElement.textContent = now.toLocaleDateString('es-ES', dateOptions);
+
+            // Obtener la hora de España manualmente ajustando la zona horaria
+            const madridOffset = 1; // UTC+1 (Horario estándar)
+            const summerOffset = 2; // UTC+2 (Horario de verano)
+
+            let utc = now.getTime() + now.getTimezoneOffset() * 60000;
+            let madridTime = new Date(utc + (madridOffset * 3600000));
+
+            // Verificar si estamos en horario de verano (último domingo de marzo a último domingo de octubre)
+            let startDST = new Date(now.getFullYear(), 2, 31);
+            startDST.setDate(startDST.getDate() - startDST.getDay()); // Último domingo de marzo
+            let endDST = new Date(now.getFullYear(), 9, 31);
+            endDST.setDate(endDST.getDate() - endDST.getDay()); // Último domingo de octubre
+
+            if (now >= startDST && now < endDST) {
+                madridTime = new Date(utc + (summerOffset * 3600000)); // UTC+2 en verano
+            }
+
+            // Formatear la hora en HH:MM:SS
+            const hours = madridTime.getHours().toString().padStart(2, '0');
+            const minutes = madridTime.getMinutes().toString().padStart(2, '0');
+            const seconds = madridTime.getSeconds().toString().padStart(2, '0');
+
+            timeElement.textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        // Actualizar la hora cada segundo
+        setInterval(updateDateTime, 1000);
+        updateDateTime(); // Ejecutar al cargar la página
     </script>
 
 </body>
