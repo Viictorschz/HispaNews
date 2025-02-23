@@ -16,7 +16,7 @@ header {
     align-items: center;
     padding: 10px 30px;
     border-bottom: 2px solid #000;
-    height: 80px; /* Se ajusta la altura para mejor alineación */
+    height: 85px; /* Ajuste final de altura */
     position: relative;
 }
 
@@ -34,13 +34,14 @@ header {
     justify-content: center;
     align-items: center;
     height: 100%;
-    padding-top: 5px; /* Ajuste fino para centrarlo mejor */
+    padding-top: 10px; /* Ajuste final para centrarlo visualmente */
 }
 
 /* Imagen del logo */
 .header-center img {
-    height: 50px; /* Ajuste de tamaño para mejor proporción */
+    height: 50px;
     max-width: 100%;
+    display: block;
 }
 
 /* Login a la derecha */
